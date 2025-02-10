@@ -1,0 +1,301 @@
+/* General body styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #081c36; /* Bluish background */
+    font-family: 'Orbitron', sans-serif;
+    color: #fff; /* White text color */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Align items to the bottom */
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Background with subtle blue light seeping */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.4) 80%);
+    filter: blur(10px);
+    z-index: -2;
+}
+
+/* Main container */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+/* Main panel style - square with chiselled edges */
+#login-panel {
+    padding: 40px; /* Remove fixed width and height */
+    background: rgba(0, 0, 255, 0.2); /* Bluish background */
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0, 176, 255, 0.8);
+    border: 2px solid rgba(0, 176, 255, 0.6);
+    color: white;
+    position: relative;
+    text-align: center;
+    max-width: 400px;
+    margin-bottom: 70px;
+}
+
+/* Glowing effect for panel */
+#login-panel:hover {
+    box-shadow: 0 0 35px rgba(0, 176, 255, 1); /* Stronger glowing effect on hover */
+}
+
+/* Title section with line separator */
+#login-title {
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #00b0ff;
+}
+
+#login-title::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 2px;
+    margin: 10px auto;
+    background: #00b0ff;
+}
+
+/* Glowing effect for all text */
+#login-title, .login-label, .login-input, .chiselled-button {
+    color: white;
+    text-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 20px #00b0ff, 0 0 30px #00b0ff;
+}
+
+/* Input fields - Glass-like with neon borders */
+.login-input {
+    padding: 10px; /* Reduced padding */
+    margin-bottom: 15px; /* Reduced margin */
+    width: 90%;
+    border: 2px solid #00b0ff;
+    background: rgba(0, 0, 255, 0.2);
+    color: white;
+    font-size: 14px; /* Reduced font size */
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.login-input:focus {
+    border-color: #00e5ff;
+    background-color: rgba(0, 0, 255, 0.3);
+    box-shadow: 0 0 5px rgba(0, 176, 255, 1);
+}
+
+/* Button with glassy square effect and glowing borders */
+.chiselled-button {
+    animation: float 2s ease-in-out infinite; /* Infinite floating effect */
+    font-size: 14px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    outline: none;
+    border: 2px solid #00b0ff; /* Initial border color */
+    position: relative;
+    background-color: transparent;
+    color: #00b0ff; /* Initial text color */
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    width: auto;
+    height: 50px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 176, 255, 0.6); /* Floating effect with subtle shadow */
+    overflow: hidden;
+}
+
+/* Chiselled effect using box shadow */
+.chiselled-button:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 3px solid #00b0ff; /* Glowing blue outline */
+    z-index: -1;
+    box-shadow: 0 0 10px 2px rgba(0, 176, 255, 1); /* Glowing blue effect */
+}
+.chiselled-button:after {
+    content: "";
+    position: absolute;
+    bottom: -50%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #000000;
+    background-color: #ffffff; /* Blue background on hover */
+    transform-origin: bottom center;
+    transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
+    transform: skewY(9.3deg) scaleY(0);
+    z-index: 80;
+}
+
+/* Glowing effect on hover */
+.chiselled-button:hover:after {
+    transform-origin: bottom center;
+    color: #000000;
+    transform: skewY(9.3deg) scaleY(2);
+}
+.chiselled-button:hover span:last-child {
+    transform: translateX(-50%) translateY(-100%);
+    opacity: 1;
+    color: #000000;
+    transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
+}
+
+/* Hover effect on text */
+.chiselled-button:hover span:first-child {
+    color: black; /* Change text color to white when hovered */
+    text-shadow: none /* Glowing text */
+    scale(1.5); /* Button pop-up effect */
+}
+.chiselled-button:focus {
+    outline: none;
+    color: #000000;
+}
+.chiselled-button span:first-child {
+    position: relative;
+    z-index: 10;
+    transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1), transform 300ms ease, text-shadow 300ms ease;
+
+}
+.chiselled-button span:last-child {
+    color: rgb(0, 0, 0);
+    display: block;
+    position: absolute;
+    bottom: 0;
+    transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
+    z-index: 100;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translateY(225%) translateX(-50%);
+    height: 14px;
+    line-height: 13px;
+    font-size: 12px;
+    font-weight: 400;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* For Mobile - Center Login Panel */
+    .container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #login-panel {
+        width: 80%;
+        height: auto; /* Adjust height on mobile */
+        padding: 30px;
+        box-shadow: none;
+    }
+
+    #login-title {
+        font-size: 40px; /* Adjust title size on mobile */
+    }
+}
+#page-title {
+    text-align: center;
+    position: absolute; /* Position the title absolutely */
+    top: -200px; /* Adjust top position as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+}
+
+.small-title {
+    font-size: calc(1.7vw + 0.5vh); /* Responsive font size */
+}
+
+.big-title {
+    font-size: calc(5vw + 1vh); /* Responsive font size */
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #00b0ff;
+}
+@keyframes float {
+    0% {
+        box-shadow: 0 0 15px rgba(0, 176, 255, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 176, 255, 1);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    }
+}
+/* Sign Up button in the bottom-right corner */
+.sign-up-button {
+    position: absolute;
+    bottom: 20px; /* Adjust position as needed */
+    right: 20px; /* Adjust position as needed */
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px;
+    color: #ff0000; /* Red text color */
+    border: 2px solid #ff0000; /* Red outline */
+    background: transparent;
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer;
+    text-transform: uppercase; /* Uppercase text for consistency */
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; /* Glowing red text effect */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); /* Initial glowing effect */
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Chiselled hover effect */
+.sign-up-button:hover {
+    background: rgba(255, 0, 0, 0.2); /* Slight red background on hover */
+    box-shadow: 0 0 25px rgba(255, 0, 0, 1); /* Stronger red glow */
+    color: black; /* Change text color to black */
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff; /* Glowing white text effect */
+}
+
+/* Glowing red outline hover effect */
+.sign-up-button:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid rgba(255, 0, 0, 0.6); /* Initial glowing border */
+    border-radius: 10px; /* Rounded corners for border */
+    box-shadow: 0 0 10px 2px rgba(255, 0, 0, 1); /* Glowing red effect */
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Background animation on hover */
+.sign-up-button:hover:before {
+    box-shadow: 0 0 25px rgba(255, 0, 0, 1), 0 0 50px rgba(255, 0, 0, 1);
+}
+
+/* Button inner hover animation */
+.sign-up-button:hover span {
+    transform: scale(1.2); /* Slight pop effect */
+    transition: transform 0.3s ease;
+}
